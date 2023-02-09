@@ -7,10 +7,15 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: dark,
       elevation: 0,
       centerTitle: true,
-      title: const Text('My To Do List'),
-      backgroundColor: dark,
+      title: const Text(
+        'My To Do List',
+        style: TextStyle(
+          color: ghostWhite,
+        ),
+      ),
     );
   }
 

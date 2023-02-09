@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/app/constants/colors.dart';
-import 'package:to_do_list/app/view/home.dart';
 
 class AddButton extends StatelessWidget {
   final Function addToDo;
   AddButton({Key? key, required this.addToDo}) : super(key: key);
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
