@@ -18,11 +18,10 @@ class Home extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: ListView(
           children: [
-            ToDoList(),
-            ToDoList(),
-            ToDoList(),
-            ToDoList(),
-            ToDoList(),
+            for (ToDoItem todo in todosList)
+              ToDoList(
+                todo: todo,
+              ),
           ],
         ),
       ),
