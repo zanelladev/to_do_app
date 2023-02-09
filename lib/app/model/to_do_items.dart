@@ -1,7 +1,7 @@
 class ToDoItem {
   int? id;
   String? text;
-  bool? isDone;
+  bool isDone;
 
   ToDoItem({required this.id, this.isDone = false, this.text});
 
