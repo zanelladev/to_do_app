@@ -35,7 +35,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const AddButton()
+          AddButton(
+            addToDo: addToDo,
+          )
         ],
       ),
     );
@@ -50,6 +52,16 @@ class _HomeState extends State<Home> {
   void deleteToDo(int id) {
     setState(() {
       todosList.removeWhere((item) => item.id == id);
+    });
+  }
+
+  void addToDo(String todo) {
+    setState(() {
+      if (todosList.isNotEmpty) {
+        todosList.add(ToDoItem(id: todosList.last.id! + 1, text: todo));
+      } else {
+        todosList.add(ToDoItem(id: 0, text: todo));
+      }
     });
   }
 }

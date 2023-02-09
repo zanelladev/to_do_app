@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/app/constants/colors.dart';
+import 'package:to_do_list/app/view/home.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({super.key});
+  final Function addToDo;
+  AddButton({Key? key, required this.addToDo}) : super(key: key);
+  TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +35,9 @@ class AddButton extends StatelessWidget {
               ],
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const TextField(
-              decoration: InputDecoration(
+            child: TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
                   hintText: 'Add a new todo item', border: InputBorder.none),
             ),
           ),
@@ -44,7 +48,9 @@ class AddButton extends StatelessWidget {
             right: 20,
           ),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              addToDo(_controller.text);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: bBlue,
               minimumSize: const Size(60, 60),
