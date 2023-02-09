@@ -52,7 +52,9 @@ class ToDoList extends StatelessWidget {
             icon: const Icon(Icons.delete),
             iconSize: 18,
             color: whiteSmoke,
-            onPressed: onDeleted(todo.id),
+            onPressed: () {
+              onDeleted(todo.id);
+            },
           ),
         ),
       ),

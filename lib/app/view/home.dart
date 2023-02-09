@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
                 for (ToDoItem todo in todosList)
                   ToDoList(
                     todo: todo,
-                    onDeleted: _deleteToDo,
+                    onDeleted: deleteToDo,
                     onChanged: toggleToDoStatus,
                   ),
               ],
@@ -47,7 +47,9 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _deleteToDo(int id) {
-    todosList.removeWhere((item) => item.id == id);
+  void deleteToDo(int id) {
+    setState(() {
+      todosList.removeWhere((item) => item.id == id);
+    });
   }
 }
